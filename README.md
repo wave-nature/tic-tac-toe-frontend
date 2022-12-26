@@ -16,4 +16,4 @@ https://tic-tac-toe-frontend-six.vercel.app/
 2. To install all dependencies - yarn
 3. No run the development server - yarn start
 4. Backend is hosted using https://render.com
-5. Github repo fro backend https://github.com/wave-nature/tic-tac-toe-backend
+5. Github repo for backend https://github.com/wave-nature/tic-tac-toe-backend
