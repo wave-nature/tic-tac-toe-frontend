@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../store/AuthContext";
 import { getGame, updateGame } from "../request/index";
@@ -31,7 +31,7 @@ export const Game = () => {
   const [win, setWin] = useState(false);
   const [draw, setDraw] = useState(false);
   const [notAllowed, setNotAllowed] = useState(false);
-  const interval = useRef();
+  const [loading, setLoading] = useState(false);
   const id = location.pathname.split("/")[2];
 
   const fetchGame = async () => {
@@ -132,9 +132,11 @@ export const Game = () => {
       inProgress = false;
       status = "draw";
     }
+    setLoading(true);
     await updateGame(id, { moves, inProgress, status }, auth.token);
     await fetchGame();
     setNotAllowed(false);
+    setLoading(false);
   };
 
   const MyPiece = () => pieces[myUserInfo?.piece];
@@ -182,7 +184,11 @@ export const Game = () => {
         </div>
         {game?.inProgress && (
           <button onClick={updateTheGame}>
-            {!myUserInfo.turn ? "Wait! Thier Turn" : "Submit"}
+            {!myUserInfo.turn
+              ? "Wait! Thier Turn"
+              : loading
+              ? "Loading"
+              : "Submit"}
           </button>
         )}
         {!game?.inProgress && (

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
 
@@ -18,10 +19,12 @@ export const Register = () => {
       username: username.value,
       password: password.value,
     };
+    setLoading(true);
     auth.registerUser(payload);
     if (auth.errorMessage === "") {
       setSuccess(true);
     }
+    setLoading(false);
   };
 
   return (
@@ -75,7 +78,9 @@ export const Register = () => {
           >
             Congratulations account created!
           </div>
-          <button className={styles.register}>Register</button>
+          <button className={styles.register}>
+            {loading ? "Loading" : "Register"}
+          </button>
         </form>
       </div>
     </>

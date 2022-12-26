@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import BackArrow from "../components/BackArrow";
 import { AuthContext } from "../store/AuthContext";
 import styles from "./Login.module.css";
@@ -6,14 +6,17 @@ import styles from "./Login.module.css";
 export const Login = () => {
   const usernameRef = useRef();
   const passwordRef = useRef();
+  const [loading, setLoading] = useState(false);
   const auth = useContext(AuthContext);
-  const submit = () => {
+  const submit = async () => {
     const payload = {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
     };
 
-    auth.loginUser(payload);
+    setLoading(true);
+    await auth.loginUser(payload);
+    setLoading(false);
   };
 
   return (
@@ -60,7 +63,7 @@ export const Login = () => {
           </div>
 
           <button onClick={submit} className={styles.btn} id="login">
-            Login
+            {loading ? "Loading" : "Login"}
           </button>
         </div>
       </div>
