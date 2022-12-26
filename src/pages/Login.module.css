@@ -1,0 +1,34 @@
+.wrapper {
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.btn {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.notify {
+  margin-top: 50px;
+}
+
+.notification {
+  height: 74px;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  margin: 0 auto;
+}

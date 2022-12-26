@@ -1,0 +1,69 @@
+.container {
+  font-family: Epilogue;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.img {
+  height: 32px;
+  width: auto;
+  margin: 12px;
+}
+
+.head-2 {
+  margin-top: 35px;
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+  text-align: left;
+}
+
+.your {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.img {
+  width: 30px;
+}
+
+.turn {
+  width: 327.88px;
+  height: 47.29px;
+  background: #ffe79e;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18.9159px;
+  line-height: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #212121;
+}
+
+.game-grid-back {
+  background: #ffe79e;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 7px;
+}
+
+.game-grid-item {
+  height: 105px;
+  width: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
